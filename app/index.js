@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import CreditCardInput from './components/CreditCardInput';
 
 const APP_ROOT = document.createElement('div');
@@ -10,4 +11,4 @@ let types = {
   'American Express': /^3[47]/
 };
 
-React.render(<CreditCardInput types={types}/>, APP_ROOT);
+ReactDOM.render(<CreditCardInput types={types}/>, APP_ROOT);
