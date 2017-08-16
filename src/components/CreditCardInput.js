@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 class CreditCardInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { number: '' };
+    this.state = { number: "" };
 
     this.handleChange = this.handleChange.bind(this);
     this.checkType = this.checkType.bind(this);
@@ -23,11 +23,11 @@ class CreditCardInput extends React.Component {
   }
 
   filterWhitespace(text) {
-    return text.replace(/\s/g, '');
+    return text.replace(/\s/g, "");
   }
 
   insertSpaces(text) {
-    return text.replace(/(.{4})/g, '$1 ');
+    return text.replace(/(.{4})/g, "$1 ");
   }
 
   checkType(text) {
@@ -37,10 +37,10 @@ class CreditCardInput extends React.Component {
         return type;
       }
     }
-    return '';
+    return "";
   }
 
-  render () {
+  render() {
     let { text: text, type: type } = this.process(this.state.number);
     return (
       <div>
