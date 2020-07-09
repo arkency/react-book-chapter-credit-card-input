@@ -1,37 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-class CreditCardInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { number: "" };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.checkType = this.checkType.bind(this);
-  }
+function CreditCardInput(props) {
+  const [number, updateNumber] = useState("");
 
-  process(number) {
-    let type = this.checkType(number);
-    let text = this.insertSpaces(number);
+  const process = newNumber => {
+    let type = checkType(newNumber);
+    let text = insertSpaces(newNumber);
     text = text.trim();
-    return { text: text, type: type };
+    return { text, type };
   }
 
-  handleChange(e) {
+  const handleChange = e =>  {
     let newValue = e.target.value;
-    let newNumber = this.filterWhitespace(newValue);
-    this.setState({ number: newNumber });
+    let newNumber = filterWhitespace(newValue);
+    updateNumber(newNumber);
   }
 
-  filterWhitespace(text) {
-    return text.replace(/\s/g, "");
-  }
+  const filterWhitespace = text => text.replace(/\s/g, "");
+  const insertSpaces = text => text.replace(/(.{4})/g, "$1 ");
 
-  insertSpaces(text) {
-    return text.replace(/(.{4})/g, "$1 ");
-  }
-
-  checkType(text) {
-    let types = this.props.types;
+  const checkType = text => {
+    const types = props.types;
     for (var type in types) {
       if (text.match(types[type])) {
         return type;
@@ -40,15 +30,14 @@ class CreditCardInput extends React.Component {
     return "";
   }
 
-  render() {
-    let { text: text, type: type } = this.process(this.state.number);
-    return (
-      <div>
-        <input type="text" value={text} onChange={this.handleChange} />
-        <input type="text" value={type} readOnly />
-      </div>
-    );
-  }
+  const { text, type } = process(number);
+
+  return (
+    <div>
+      <input type="text" value={text} onChange={handleChange} />
+      <input type="text" value={type} readOnly />
+    </div>
+  );
 }
 
 export default CreditCardInput;
