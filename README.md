@@ -1,5 +1,4 @@
-This is the part of the Arkademy.
-You can buy the Arkademy here: http://arkademy.dev/ 
+This repo is part of the "React.js by Example" course. You can get this class (and many others + Discord) at Arkademy.dev
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
