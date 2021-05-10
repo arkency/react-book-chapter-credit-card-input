@@ -1,3 +1,6 @@
+This is the part of the Arkademy.
+You can buy the Arkademy here: http://arkademy.dev/ 
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
